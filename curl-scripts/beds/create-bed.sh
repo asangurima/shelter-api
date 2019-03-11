@@ -7,7 +7,7 @@ curl "http://localhost:4741/beds" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "bed": {
-      "name": "'"${NAME}"'"
+      "full_name": "'"${NAME}"'"
     }
   }'
 
