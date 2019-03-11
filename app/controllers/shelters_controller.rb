@@ -1,5 +1,5 @@
-class SheltersController < ApplicationController
-  before_action :set_shelter, only: [:show, :update, :destroy]
+class SheltersController < OpenReadController
+  before_action :set_shelter, only: [:update, :destroy]
 
   # GET /shelters
   def index
@@ -10,12 +10,12 @@ class SheltersController < ApplicationController
 
   # GET /shelters/1
   def show
-    render json: @shelter
+    render json: Shelter.find(params[:id])
   end
 
   # POST /shelters
   def create
-    @shelter = Shelter.new(shelter_params)
+    @shelter = current_user.shelters.create(shelter_params)
 
     if @shelter.save
       render json: @shelter, status: :created, location: @shelter
@@ -41,11 +41,11 @@ class SheltersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shelter
-      @shelter = Shelter.find(params[:id])
+      @shelter = current_user.shelters.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def shelter_params
-      params.require(:shelter).permit(:name, :location, :phone_num, :avail_beds)
+      params.require(:shelter).permit(:name, :location, :phone_num, :avail_beds, :user_id)
     end
 end
