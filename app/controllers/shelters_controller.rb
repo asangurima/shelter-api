@@ -8,6 +8,13 @@ class SheltersController < OpenReadController
     render json: @shelters
   end
 
+  # GET /user-shelters
+  def user_index
+    @usershelters = current_user.shelters.all
+
+    render json: @usershelters
+  end
+
   # GET /shelters/1
   def show
     render json: Shelter.find(params[:id])
@@ -32,6 +39,15 @@ class SheltersController < OpenReadController
       render json: @shelter.errors, status: :unprocessable_entity
     end
   end
+
+  # PATCH/PUT /shelters/1/beds
+  # def update_beds
+  #   if @shelter.update(params.require(:shelter).permit(:avail_beds, :user_id))
+  #     render json: @shelter
+  #   else
+  #     render json: @shelter.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /shelters/1
   def destroy

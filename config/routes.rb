@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
 
+  get '/user-shelters' => 'shelters#user_index'
+
 # Want to figure out a way to just update the bed # for specific shelter:
-  # patch '/shelters/:id/beds' => 'shelters#updatebed'
+  # patch '/shelters/:id/beds' => 'shelters#update_beds'
 end
