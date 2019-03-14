@@ -46,6 +46,11 @@ class UsersController < ProtectedController
     end
   end
 
+  # def show
+  #   @users = User.all
+  #   render json: @users
+  # end
+
   private
 
   def user_creds
