@@ -10,6 +10,8 @@ Link to Client github: https://github.com/asangurima/shelter
 
 Link to Client deployed site: https://asangurima.github.io/shelter
 
+Link to API on heroku: https://gimmeshelter.herokuapp.com
+
 ## User Stories
 ##### As a person seeking shelter or social worker I would like to:
 - view all the shelters available at once and scroll through the data.
@@ -46,6 +48,7 @@ Link to Client deployed site: https://asangurima.github.io/shelter
   - Ruby
   - Rails
   - Heroku
+  - Postgresql
   - Front end:
     - HTML
     - SCSS
